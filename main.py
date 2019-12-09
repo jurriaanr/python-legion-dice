@@ -23,23 +23,29 @@ def getInput(include_black=True):
     }
 
 
+def test():
+    dice = AttackDice()
+    result = dice.test(3, 0, 0, 1000000, True)
+    print("On the attack the roll is likely to have %s successes" % result)
+
+
 if __name__ == '__main__':
-    # import timeit
+    import timeit
 
     freeze_support()
+    #
+    # mode = input("Attack or Defend? (attack): ").lower() or "attack"
+    #
+    # if mode == "defend":
+    #     dice = DefenseDice()
+    #     userInput = getInput(False)
+    #     result = dice.test(userInput["red"], userInput["white"], userInput["rolls"], userInput["surge"])
+    # else:
+    #     dice = AttackDice()
+    #     userInput = getInput(True)
+    #     result = dice.test(userInput["red"], userInput["black"], userInput["white"], userInput["rolls"], userInput["surge"])
+    #
+    # print("On the %s the roll is likely to have %s successes" % (mode, result))
 
-    mode = input("Attack or Defend? (attack): ").lower() or "attack"
-
-    if mode == "defend":
-        dice = DefenseDice()
-        userInput = getInput(False)
-        result = dice.test(userInput["red"], userInput["white"], userInput["rolls"], userInput["surge"])
-    else:
-        dice = AttackDice()
-        userInput = getInput(True)
-        result = dice.test(userInput["red"], userInput["black"], userInput["white"], userInput["rolls"], userInput["surge"])
-
-    print("On the %s the roll is likely to have %s successes" % (mode, result))
-
-    # elapsed_time = timeit.timeit("test()", number=1, setup="from __main__ import test")
-    # print("Elapsed time %s" % elapsed_time)
+    elapsed_time = timeit.timeit("test()", number=1, setup="from __main__ import test")
+    print("Elapsed time %s" % elapsed_time)
