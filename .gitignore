@@ -5,3 +5,4 @@
 *.orig
 *~
 /.env
+__pycache__/*
